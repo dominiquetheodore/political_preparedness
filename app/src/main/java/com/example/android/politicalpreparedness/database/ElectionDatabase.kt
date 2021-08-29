@@ -3,12 +3,15 @@ package com.example.android.politicalpreparedness.database
 import android.content.Context
 import androidx.room.*
 import com.example.android.politicalpreparedness.network.models.Election
+import com.example.android.politicalpreparedness.network.models.SavedElection
 
-@Database(entities = [Election::class], version = 1, exportSchema = false)
+@Database(entities = [Election::class, SavedElection::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class ElectionDatabase: RoomDatabase() {
 
     abstract val electionDao: ElectionDao
+
+    abstract val savedElectionDao: SavedElectionDao
 
     companion object {
 

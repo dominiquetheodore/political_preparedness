@@ -15,22 +15,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
         android:onClick="@{() -> clickListener.onClick(election)}"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/election_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{election.name}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+            <TextView
+                android:id="@+id/election_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{election.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                tools:text="Presidential elections" />
 
-        <TextView
-            android:id="@+id/election_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{election.electionDay.toString()}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            <TextView
+                android:id="@+id/election_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{election.electionDay.toString()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                tools:text="10-Jun-2021" />
 
     </LinearLayout>
 </layout>

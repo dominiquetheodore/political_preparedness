@@ -13,6 +13,14 @@ data class Election(
         @Embedded(prefix = "division_") @Json(name="ocdDivisionId") val division: Division
 )
 
+@Entity(tableName = "saved_elections")
+data class SavedElection(
+        @PrimaryKey val id: Int,
+        @ColumnInfo(name = "name")val name: String,
+        @ColumnInfo(name = "electionDay")val electionDay: Date,
+        @Embedded(prefix = "division_") @Json(name="ocdDivisionId") val division: Division
+)
+
 
 fun List<Election>.asDomainModel(): List<Election> {
         return map {
@@ -28,6 +36,17 @@ fun List<Election>.asDomainModel(): List<Election> {
 fun List<Election>.asDatabaseModel(): List<Election> {
         return map {
                 Election (
+                        id=it.id,
+                        name = it.name,
+                        electionDay = it.electionDay,
+                        division = it.division
+                )
+        }
+}
+
+fun List<Election>.toSaved(): List<SavedElection> {
+        return map {
+                SavedElection (
                         id=it.id,
                         name = it.name,
                         electionDay = it.electionDay,

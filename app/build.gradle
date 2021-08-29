@@ -63,6 +63,7 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit: $version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
 
     // Moshi
@@ -71,7 +72,10 @@ dependencies {
     implementation "com.squareup.moshi:moshi-adapters:$version_moshi"
 
     // Glide
-    //TODO: Add Glide Implementation
+    //DONE: Add Glide Implementation
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     //Room
     implementation "androidx.room:room-runtime:$version_room"
@@ -79,4 +83,10 @@ dependencies {
 
     // Location
     implementation "com.google.android.gms:play-services-location:$version_play_services_location"
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:5.0.0'
+
+    //Logging interceptor
+    // implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 }

@@ -5,11 +5,23 @@ import android.widget.ImageView
 import android.widget.Spinner
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.example.android.politicalpreparedness.R
 
 @BindingAdapter("profileImage")
 fun fetchImage(view: ImageView, src: String?) {
     src?.let {
         val uri = src.toUri().buildUpon().scheme("https").build()
+        Glide.with(view.getContext()).load(uri).circleCrop().into(view);
+
+        if (!src.isNullOrEmpty()){
+
+            Glide.with(view.context).load(uri).circleCrop()
+                .into(view)
+        }
+        else{
+            view.setImageResource(R.drawable.ic_profile)
+        }
         //TODO: Add Glide call to load image and circle crop - user ic_profile as a placeholder and for errors.
     }
 }

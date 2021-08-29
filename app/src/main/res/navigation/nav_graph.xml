@@ -37,10 +37,17 @@
         <argument
             android:name="arg_division"
             app:argType="com.example.android.politicalpreparedness.network.models.Division" />
+        <action
+            android:id="@+id/action_voterInfoFragment_to_electionFragment"
+            app:destination="@id/electionFragment" />
     </fragment>
     <fragment
         android:id="@+id/electionFragment"
         android:name="com.example.android.politicalpreparedness.election.ElectionsFragment"
-        android:label="fragment_elections"/>
+        android:label="fragment_elections">
+        <action
+            android:id="@+id/action_electionFragment_to_voterInfoFragment"
+            app:destination="@id/voterInfoFragment" />
+    </fragment>
 
 </navigation>
